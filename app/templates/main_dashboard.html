@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div class="d-flex justify-content-center gap-5 flex-wrap">
+
+  <div class="card-style text-center">
+    <i class="fa-solid fa-user fa-3x text-success mb-3"></i>
+    <h4>Patient</h4>
+    <div class="d-grid gap-2 mt-3">
+      {% if not user.is_authenticated %}
+      <a href="/signin_1" class="btn btn-custom">Sign In</a>
+      <a href="/signup_1" class="btn btn-outline-primary">Sign Up</a>
+      {% else %}
+      <a href="/patient_d/" class="btn btn-custom">Go to Dashboard</a>
+      <a href="/userlogout" class="btn btn-outline-danger">Logout</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="card-style text-center">
+    <i class="fa-solid fa-user-doctor fa-3x text-info mb-3"></i>
+    <h4>Doctor</h4>
+    <div class="d-grid gap-2 mt-3">
+      <a href="/signin_2" class="btn btn-custom">Sign In</a>
+      <a href="/signup_2" class="btn btn-outline-primary">Sign Up</a>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
